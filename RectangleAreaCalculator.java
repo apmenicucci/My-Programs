@@ -4,7 +4,7 @@ public class RectangleAreaCalculator {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Prompt the user for input
+        // Welcome messages, request for input
         System.out.println("Welcome to the Rectangle Area Calculator!");
         System.out.print("Enter the length of the rectangle: ");
         double length = scanner.nextDouble();
@@ -13,10 +13,10 @@ public class RectangleAreaCalculator {
         System.out.print("Enter the unit of measurement: ");
         String units = scanner.next();
 
-        // Calculate the area of the rectangle
+        // Calculations done here
         double area = length * width;
 
-        // Display the result
+        // Result shown
         System.out.println("The area of the rectangle is " + area + " " + units + ".");
         System.out.print("Thanks for using the Rectangle Area Calculator!");
 
