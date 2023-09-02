@@ -11,7 +11,7 @@ public class RectangleAreaCalculator {
         System.out.print("Enter the width of the rectangle: ");
         double width = scanner.nextDouble();
         System.out.print("Enter the unit of measurement: ");
-        String units = scanner.next();
+        String units = scanner.nextLine();
 
         // Calculations done here
         double area = length * width;
