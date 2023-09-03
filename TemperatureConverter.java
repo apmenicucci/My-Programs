@@ -24,17 +24,17 @@ public class TemperatureConverter {
     }
 
     public static double CtoF(double degrees) {
-        double a = 1.8;
-        double b = 32.0;
-        double fahrenheit = (a * degrees) + b;
+        double f = 1.8;
+        double g = 32.0;
+        double fahrenheit = (f * degrees) + g;
         return fahrenheit;
     }
 
     public static double FtoC(double degrees) {
-        double c = 9.0;
-        double d = 5.0;
-        double e = 32.0;
-        double celsius = (degrees - e) * (d/c);
+        double h = 9.0;
+        double i = 5.0;
+        double j = 32.0;
+        double celsius = (degrees - j) * (i/h);
         return celsius;
     }
 
@@ -45,7 +45,12 @@ public class TemperatureConverter {
         //Welcome messages, request for input
         System.out.println("Welcome to the Temperature Converter!");
         System.out.print("What unit are you starting with? ");
-        String unit = scanner.nextLine().toUpperCase();
+        String unit = scanner.nextLine();
+        while (!unit.equals("C") && !unit.equals("F") && !unit.equals("Celsius") && !unit.equals("Fahrenheit")) {
+            System.out.println("Unrecognized unit. Make sure the first letter of the unit is capitalized.");
+            System.out.print("What unit are you starting with? ");
+            unit = scanner.nextLine();
+        }
         System.out.print("How many degrees " + unit + " are there? ");
         double degrees = scanner.nextDouble();
         System.out.print("Would you like your conversion to be rounded? (Yes/No) ");
@@ -53,47 +58,21 @@ public class TemperatureConverter {
         System.out.println("Doing the conversion...");
 
         if (answer.equals("YES")) {
-            if (unit.equals("C") || unit.equals("CELSIUS")) {
+            if (unit.equals("C") || unit.equals("Celsius")) {
             double rfahrenheit = CtoFround(degrees);
             System.out.print(degrees + "°C in Fahrenheit is about " + rfahrenheit + "°F.");
-            } else if (unit.equals("F") || unit.equals("FAHRENHEIT")) {
+            } else if (unit.equals("F") || unit.equals("Fahrenheit")) {
                 double rcelsius = FtoCround(degrees);
                 System.out.print(degrees + "°F in Celsius is about " + rcelsius + "°C.");
-            } else {
-                System.out.println("That unit does not exist.");
-                System.out.println("Make sure the unit is capitalized for the program to work.");
-
-                String restart;
-
-                do {
-                    System.out.print("Do you want to restart the program? (yes/no): ");
-                    restart = scanner.nextLine();
-                } while (restart.equalsIgnoreCase("yes"));
-    
-                System.out.println("Program has ended.");
-            
-        }
+            }
         } else if (answer.equals("NO")) {
-            if (unit.equals("C") || unit.equals("CELSIUS")) {
+            if (unit.equals("C") || unit.equals("Celsius")) {
                 double fahrenheit = CtoF(degrees);
                 System.out.print(degrees + "°C in Fahrenheit is about " + fahrenheit + "°F.");
-            } else if (unit.equals("F") || unit.equals("FAHRENHEIT")) {
+            } else if (unit.equals("F") || unit.equals("Fahrenheit")) {
                 double celsius = FtoC(degrees);
                 System.out.print(degrees + "°F in Celsius is about " + celsius + "°C.");
-            } else {
-                System.out.println("That unit does not exist.");
-                System.out.println("Make sure the unit is capitalized for the program to work.");
-
-                String restart;
-
-                do {
-                    System.out.print("Do you want to restart the program? (yes/no): ");
-                    restart = scanner.nextLine();
-                } while (restart.equalsIgnoreCase("yes"));
-    
-                System.out.println("Program has ended.");
-            
-        }
+            }
         } else {
             System.out.print("If you can't answer a yes or no question, we won't answer yours either.");
         }
