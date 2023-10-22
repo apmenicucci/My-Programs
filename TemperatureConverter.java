@@ -39,6 +39,8 @@ public class TemperatureConverter {
     }
 
     public static void main(String[] args) {
+        double degrees;
+
         // Open scanner
         Scanner scanner = new Scanner(System.in);
 
@@ -51,8 +53,20 @@ public class TemperatureConverter {
             System.out.print("What unit are you starting with? ");
             unit = scanner.nextLine();
         }
-        System.out.print("How many degrees " + unit + " are there? ");
-        double degrees = scanner.nextDouble();
+
+        do {
+            try {
+                System.out.print("How many degrees " + unit + " are there? ");
+                degrees = scanner.nextDouble();
+                scanner.nextLine();
+            } catch (java.util.InputMismatchException e) {
+                // Handle input that is not a double
+                System.out.println("Invalid input. Please enter a valid double.");
+                scanner.nextLine(); // Consume the invalid input
+                degrees = Double.NaN; // Set to a non-numeric value to continue the loop
+            }
+        } while (Double.isNaN(degrees));
+
         System.out.print("Would you like your conversion to be rounded? (Yes/No) ");
         String answer = scanner.next().toUpperCase();
         System.out.println("Doing the conversion...");
