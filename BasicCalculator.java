@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class BasicCalculator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
         double fnumber;
         double snumber;
         double answer;
@@ -20,12 +20,12 @@ public class BasicCalculator {
             System.out.println("What operation would you like to do today:");
             System.out.println("Addition (+), Subtraction (-), Multiplication (*), or Division (/)?");
             System.out.print("Enter the operation symbol: ");
-            String operation = scanner.nextLine();
+            String operation = s.nextLine();
 
             while (!operation.equals("+") && !operation.equals("-") && !operation.equals("*") && !operation.equals("/")) {
                 System.out.println("Unrecognized operation. Make sure you type what is in the parentheses above.");
                 System.out.print("Enter the operation symbol: ");
-                operation = scanner.nextLine();
+                operation = s.nextLine();
             }
 
             answer = 0; // In Java, local variables must be assigned a value before you can use them. 
@@ -34,12 +34,12 @@ public class BasicCalculator {
             do {
                 try {
                     System.out.print("Enter your first number: ");
-                    fnumber = scanner.nextDouble();
-                    scanner.nextLine();
+                    fnumber = s.nextDouble();
+                    s.nextLine();
                 } catch (java.util.InputMismatchException e) {
                     // Handle input that is not a double
                     System.out.println("Invalid input. Please enter a valid double.");
-                    scanner.nextLine(); // Consume the invalid input
+                    s.nextLine(); // Consume the invalid input
                     fnumber = Double.NaN; // Set to a non-numeric value to continue the loop
                 }
             } while (Double.isNaN(fnumber));
@@ -47,11 +47,11 @@ public class BasicCalculator {
             do {
                 try {
                     System.out.print("Enter your second number: ");
-                    snumber = scanner.nextDouble();
-                    scanner.nextLine();
+                    snumber = s.nextDouble();
+                    s.nextLine();
                 } catch (java.util.InputMismatchException e) {
                     System.out.println("Invalid input. Please enter a valid double.");
-                    scanner.nextLine();
+                    s.nextLine();
                     snumber = Double.NaN;
                 }
             } while (Double.isNaN(snumber));
@@ -80,8 +80,8 @@ public class BasicCalculator {
         
             System.out.println("The answer is " + answer);
             System.out.print("Would you like to do another calculation? (Y/N) ");
-            another = scanner.next().toUpperCase().charAt(0);
-            scanner.nextLine();
+            another = s.next().toUpperCase().charAt(0);
+            s.nextLine();
             if (another != 'Y' && another != 'N') {
                 System.out.println("All you had to do was type 'Y' or 'N', and you STILL failed.");
             } else {
@@ -92,7 +92,7 @@ public class BasicCalculator {
 
     System.out.println("Thank you for using the Basic Calculator.");
     System.out.print("Basic Calculator closed.");
-    scanner.close();
+    s.close();
 
     }
     

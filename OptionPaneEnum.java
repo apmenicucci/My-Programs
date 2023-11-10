@@ -22,7 +22,7 @@ public class OptionPaneEnum {
         CardSuit diamonds = CardSuit.diamonds;
         JOptionPane.showMessageDialog(f, "The four suits are " + hearts + ", " + spades + ", " + clubs + ", and " + diamonds + ".");
 
-        ImageIcon icon = new ImageIcon("C:/Users/apmen/Pictures/testImageIcon3.png");
+        ImageIcon icon = new ImageIcon("C:/Users/261280am/Pictures/testImageIcon3.png");
         UIManager.put("OptionPane.minimumSize", new Dimension(300, 250));
         JOptionPane.showMessageDialog(f, "Large alert.", "ALERT", JOptionPane.WARNING_MESSAGE, icon);
     }
